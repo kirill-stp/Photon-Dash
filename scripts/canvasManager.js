@@ -178,4 +178,4 @@ const canvasManager = new CanvasManager("gameCanvas");
 canvasManager.initializeLevel("levels/level_1.json");
 
 // Example of updating the photon position
-canvasManager.updatePhotonPosition(100, 350); // Change this to whatever values you want
+canvasManager.updatePhotonPosition(450, 350); // Change this to whatever values you want
