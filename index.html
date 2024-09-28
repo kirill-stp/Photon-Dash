@@ -13,7 +13,7 @@
     <!-- Row with two columns -->
     <div class="row">
       <!-- Left Column: Timer, Canvas, and Level Buttons -->
-      <div class="column1" style="background-color: #aaa">
+      <div class="column1">
         <div class="timer">
           <p>Timer: <span id="timer">0</span></p>
         </div>
@@ -29,12 +29,11 @@
           <button id="level7" onclick="startLevel(7)">Level 7</button>
           <button id="level8" onclick="startLevel(8)">Level 8</button>
           <button id="level9" onclick="startLevel(9)">Level 9</button>
-          <button id="level10" onclick="startLevel(10)">Level 10</button>
         </div>
       </div>
 
-      <!-- Right Column: Leaderboard and Legend -->
-      <div class="column2" style="background-color: #bbb">
+      <!-- Right Column: Leaderboard, Legend, and Current Speed -->
+      <div class="column2">
         <div class="leaderboard">
           <h2>Leaderboard :</h2>
           <ul id="leaderboardList">
@@ -47,7 +46,6 @@
             <li>Level 7:</li>
             <li>Level 8:</li>
             <li>Level 9:</li>
-            <li>Level 10:</li>
           </ul>
         </div>
         <div class="legend">
@@ -60,6 +58,10 @@
             <li>Left Arrow: Move left</li>
             <li>Right Arrow: Move right</li>
           </ul>
+        </div>
+        <div class="current-speed">
+          <h2>Current Speed :</h2>
+          <p><span id="currentSpeed">0</span> km/h</p>
         </div>
       </div>
     </div>
