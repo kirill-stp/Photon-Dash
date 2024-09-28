@@ -1,3 +1,13 @@
+import { CanvasManager } from "./canvasManager.js";
+// Initialize the CanvasManager
+const canvasManager = new CanvasManager("gameCanvas");
+// Start the level and draw obstacles
+canvasManager.initializeLevel("levels/level_1.json");
+// Example of updating the photon position
+canvasManager.updatePhotonPosition(150, 250);
+canvasManager.updatePhotonPosition(160, 250);
+canvasManager.updatePhotonPosition(250, 250); // Change this to whatever values you want
+
 let startTime;
 let elapsedTime = 0; //in nanoseconds
 const timerElement = document.getElementById('timer');

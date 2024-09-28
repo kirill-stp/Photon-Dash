@@ -1,5 +1,5 @@
 {
-    "levelNumber": 3,
+    "levelNumber": 1,
     "dimensions": { "width": 600, "height": 600 },
     "playerStart": { "x": 300, "y": 600 },
     "objects": [

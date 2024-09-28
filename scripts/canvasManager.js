@@ -1,10 +1,16 @@
-class CanvasManager {
+export class CanvasManager {
   constructor(canvasId) {
     // Get the canvas and context
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext("2d");
     this.photonPosition = { x: 0, y: 0 }; // Initial position of the photon
+    this.targetPosition = { x: 200, y: 300 }; // Initial target position for the arrow
     this.levelData = null; // To store level data for redrawing
+
+    // Bind the mouse click event to the canvas
+    this.canvas.addEventListener("click", (event) =>
+      this.handleCanvasClick(event)
+    );
   }
 
   // Method to initialize the canvas and load the level data
@@ -44,8 +50,12 @@ class CanvasManager {
     this.clearCanvas(); // Clear the previous frame
     this.drawObstacles(this.levelData); // Draw obstacles
     this.drawPhoton(this.photonPosition.x, this.photonPosition.y); // Draw photon at its position
-    // Example arrow drawing from photon to a specific point
-    this.drawArrow(this.photonPosition.x, this.photonPosition.y, 200, 300); // Modify endpoint as needed
+    this.drawArrow(
+      this.photonPosition.x,
+      this.photonPosition.y,
+      this.targetPosition.x,
+      this.targetPosition.y
+    ); // Arrow to target
   }
 
   // Method to draw obstacles (mirrors)
@@ -63,7 +73,7 @@ class CanvasManager {
           obstacle.bottomRightPosition
         ); // Debug: Log mirror positions
 
-        this.ctx.fillStyle = "rgba(0, 255, 0, 0.8)"; // Set color for mirrors (make it more visible)
+        this.ctx.fillStyle = "rgba(0, 255, 0, 0.😎"; // Set color for mirrors (make it more visible)
 
         // Calculate mirror width and height
         const mirrorWidth =
@@ -141,13 +151,22 @@ class CanvasManager {
 
     console.log(`Arrow drawn from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Confirm arrow is drawn
   }
+
+  // Method to handle canvas clicks
+  handleCanvasClick(event) {
+    const rect = this.canvas.getBoundingClientRect();
+    const scaleX = this.canvas.width / rect.width; // Scale factor for X
+    const scaleY = this.canvas.height / rect.height; // Scale factor for Y
+
+    const x = (event.clientX - rect.left) * scaleX; // Adjust for canvas scale
+    const y = (event.clientY - rect.top) * scaleY; // Adjust for canvas scale
+
+    console.log(`Canvas clicked at: (${x}, ${y})`); // Debug: Log click position
+
+    // Update the target position for the arrow to point to the click location
+    this.targetPosition = { x: x, y: y };
+
+    // Redraw the scene with the new target position
+    this.drawScene();
+  }
 }
-
-// Initialize the CanvasManager
-const canvasManager = new CanvasManager("gameCanvas");
-
-// Start the level and draw obstacles
-canvasManager.initializeLevel("levels/level_1.json");
-
-// Example of updating the photon position
-canvasManager.updatePhotonPosition(450, 350); // Change this to whatever values you want

@@ -17,7 +17,7 @@ body {
   font-size: 50px;
   color: #40085d;
   letter-spacing: 2px;
-  margin: 20px auto 30px auto;
+  margin: 10px auto 20px auto;
   text-shadow: 2px 2px 5px rgba(93, 27, 135, 0.2);
   border-bottom: 3px solid #000000;
   display: block;
@@ -25,46 +25,44 @@ body {
   padding-bottom: 10px;
 }
 
-/* Unifying borders and adding more elegant fonts */
+/* Row becomes a flex container */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Makes both columns equal in height */
+}
+
+/* Column styling - make each column a flexbox */
 .column1,
 .column2 {
-  float: left;
-  padding: 20px;
-  border: 2px solid #4a0d0d; /* Matching the border color with the background color */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Aligns content within the columns */
+  padding: 19px;
+  border: 2px solid #4a0d0d;
   border-radius: 10px;
 }
 
+/* Set the column widths */
 .column1 {
-  width: 70%;
+  width: 71%;
   background-color: #aaa;
 }
 
 .column2 {
   width: 28%;
   background-color: #bbb;
-  margin-left: 1%; /* Adding some space between the two columns */
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 24px;
 }
 
 /* Timer styling */
 .timer {
   color: #ffffff;
   background-color: #b58dd3;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   border: 2px solid #030303;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 /* Canvas styling */
@@ -74,7 +72,7 @@ h2 {
   height: 550px;
   border: 2px solid #070707;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 /* Level buttons */
@@ -108,15 +106,15 @@ h2 {
 .leaderboard {
   background-color: #859be7;
   color: white;
-  padding: 20px;
+  padding: 12px;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 11px;
   border-radius: 8px;
   border: 2px solid #000000;
 }
 
 .leaderboard li {
-  margin-bottom: 8px; /* Adds spacing between leaderboard items */
+  margin-bottom: 8px;
 }
 
 /* Legend styling */
@@ -124,13 +122,13 @@ h2 {
   background-color: #837edf;
   border: 2px solid #000000;
   color: white;
-  padding: 20px;
+  padding: 12px;
   text-align: left;
   border-radius: 8px;
 }
 
 .legend li {
-  margin-bottom: 8px; /* Adds spacing between legend items */
+  margin-bottom: 8px;
 }
 
 /* Current Speed section styling */
@@ -138,8 +136,8 @@ h2 {
   background-color: #a78ac6;
   border: 2px solid #000000;
   color: white;
-  padding: 20px;
+  padding: 12px;
   text-align: left;
-  margin-top: 15px;
+  margin-top: 11px;
   border-radius: 8px;
 }

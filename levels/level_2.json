@@ -1,5 +1,5 @@
 {
-    "levelNumber": 1,
+    "levelNumber": 2,
     "dimensions": { "width": 600, "height": 600 },
     "playerStart": { "x": 300, "y": 600 },
     "objects": [
@@ -7,25 +7,91 @@
             "name": "left_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 0},
-            "bottomRightPosition": {"x": 4, "y": 600}
+            "bottomRightPosition": {"x": 8, "y": 600}
         },
         {
             "name": "right_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 596, "y": 0},
+            "topLeftPosition": {"x": 592, "y": 0},
             "bottomRightPosition": {"x": 600, "y": 600}
         },
         {
             "name": "top_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 0},
-            "bottomRightPosition": {"x": 500, "y": 4}
+            "bottomRightPosition": {"x": 500, "y": 8}
         },
         {
             "name": "bottom_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 0, "y": 596},
+            "topLeftPosition": {"x": 0, "y": 592},
             "bottomRightPosition": {"x": 600, "y": 600}
+        },
+        {
+            "name": "horizontal_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 150, "y": 300},
+            "bottomRightPosition": {"x": 310, "y": 308}
+        },
+        {
+            "name": "vertical_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 100, "y": 200},
+            "bottomRightPosition": {"x": 108, "y": 260}
+        },
+        {
+            "name": "hortizontal_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 410, "y": 430},
+            "bottomRightPosition": {"x": 530, "y": 438}
+        },
+        {
+            "name": "hortizontal_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 30, "y": 100},
+            "bottomRightPosition": {"x": 140, "y": 108}
+        },
+        {
+            "name": "vertical_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 300, "y": 400},
+            "bottomRightPosition": {"x": 308, "y": 460}
+        },
+        {
+            "name": "wall_void",
+            "type": "void",
+            "topLeftPosition": {"x": 592, "y": 100},
+            "bottomRightPosition": {"x": 600, "y": 200}
+        },
+        {
+            "name": "wall_void",
+            "type": "void",
+            "topLeftPosition": {"x": 300, "y": 0},
+            "bottomRightPosition": {"x": 380, "y": 8}
+        },
+        {
+            "name": "wall_void",
+            "type": "void",
+            "topLeftPosition": {"x": 300, "y": 400},
+            "bottomRightPosition": {"x": 308, "y": 460}
+        },
+        {
+            "name": "floating_void",
+            "type": "void",
+            "topLeftPosition": {"x": 400, "y": 592},
+            "bottomRightPosition": {"x": 480, "y": 600}
+        },
+        {
+            "name": "floating_void",
+            "type": "void",
+            "topLeftPosition": {"x": 300, "y": 80},
+            "bottomRightPosition": {"x": 380, "y": 120}
+        },
+        {
+            "name": "floating_void",
+            "type": "void",
+            "topLeftPosition": {"x": 30, "y": 500},
+            "bottomRightPosition": {"x": 158, "y": 590}
         }
     ],
     "finishLine": {
