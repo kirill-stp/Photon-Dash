@@ -10,6 +10,21 @@ body {
   margin: 0;
 }
 
+/* Title styling */
+.title {
+  font-family: "Poppins", "Playfair Display", serif;
+  font-size: 50px;
+  text-align: center;
+  color: #40085d; /* Matches the color palette */
+  letter-spacing: 2px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(93, 27, 135, 0.2);
+  border-bottom: 3px solid #000000; /* Add a decorative border under the title */
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
 /* Unifying borders and adding more elegant fonts */
 .column1,
 .column2 {
@@ -27,7 +42,7 @@ body {
 .column2 {
   width: 28%;
   background-color: #bbb;
-  margin-left: 2%; /* Adding some space between the two columns */
+  margin-left: 1%; /* Adding some space between the two columns */
 }
 
 .row:after {
@@ -43,10 +58,11 @@ h2 {
 
 /* Timer styling */
 .timer {
-  background-color: #fdfdfd;
+  color: #ffffff;
+  background-color: #b58dd3;
   padding: 20px;
   text-align: center;
-  font-size: 18px;
+  border: 2px solid #030303;
   border-radius: 8px;
   margin-bottom: 15px;
 }
@@ -69,11 +85,12 @@ h2 {
   background-color: #cac3d4;
   padding: 10px;
   border-radius: 8px;
+  border: 2px solid #090909;
 }
 
 .level-selection button {
   background-color: #4c3e77;
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 10px 20px;
   margin: 5px;
   border: 2px solid #000000; /* Same border color as the sections */
@@ -95,6 +112,7 @@ h2 {
   text-align: left;
   margin-bottom: 15px;
   border-radius: 8px;
+  border: 2px solid #090909;
 }
 
 .leaderboard li {
@@ -104,6 +122,7 @@ h2 {
 /* Legend styling */
 .legend {
   background-color: #837edf;
+  border: 2px solid #090909;
   color: white;
   padding: 20px;
   text-align: left;
@@ -117,6 +136,7 @@ h2 {
 /* Current Speed section styling */
 .current-speed {
   background-color: #a78ac6;
+  border: 2px solid #090909;
   color: white;
   padding: 20px;
   text-align: left;
