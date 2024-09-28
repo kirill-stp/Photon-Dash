@@ -36,8 +36,8 @@
         {
             "name": "vertical_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 100, "y": 200},
-            "bottomRightPosition": {"x": 108, "y": 260}
+            "topLeftPosition": {"x": 200, "y": 400},
+            "bottomRightPosition": {"x": 208, "y": 460}
         },
         {
             "name": "hortizontal_mirror",
@@ -48,14 +48,14 @@
         {
             "name": "hortizontal_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 30, "y": 100},
-            "bottomRightPosition": {"x": 140, "y": 108}
+            "topLeftPosition": {"x": 30, "y": 500},
+            "bottomRightPosition": {"x": 180, "y": 508}
         },
         {
             "name": "vertical_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 400, "y": 100},
+            "bottomRightPosition": {"x": 408, "y": 190}
         }
     ],
     "finishLine": {
