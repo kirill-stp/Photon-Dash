@@ -1,95 +1,125 @@
+/* General styles */
 * {
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* General body styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f6f6f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d1d1d1;
+  margin: 0;
 }
 
-/* Create two equal columns that float next to each other */
-.column1 {
-  float: left;
-  width: 75%;
-  padding: 10px;
-}
-
-/* Create two equal columns that float next to each other */
+/* Unifying borders and adding more elegant fonts */
+.column1,
 .column2 {
   float: left;
-  width: 25%;
-  padding: 10px;
+  padding: 20px;
+  border: 2px solid #4a0d0d; /* Matching the border color with the background color */
+  border-radius: 10px;
 }
 
-/* Clear floats after the columns */
+.column1 {
+  width: 70%;
+  background-color: #aaa;
+}
+
+.column2 {
+  width: 28%;
+  background-color: #bbb;
+  margin-left: 2%; /* Adding some space between the two columns */
+}
+
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
 /* Timer styling */
 .timer {
-  background-color: #ffffff;
-  padding: 10px;
+  background-color: #ffb2b2;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 10px;
   font-size: 18px;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 /* Canvas styling */
 #gameCanvas {
-  background-color: #ffffff;
-  /* width: 100%;
-  height: 550px; */
-}
-
-/* Leaderboard and legend styling */
-.leaderboard {
-  background-color: #c887dd;
-  color: white;
-  padding: 10px;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.leaderboard li {
-  margin-bottom: 5px; /* Adds spacing between each leaderboard item */
-}
-
-.legend {
-  background-color: #6950e8;
-  color: white;
-  padding: 10px;
-  text-align: left;
-}
-
-.legend li {
-  margin-bottom: 5px; /* Adds spacing between each legend item */
+  background-color: #c17070;
+  width: 100%;
+  height: 550px;
+  border: 2px solid #4a0d0d;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 /* Level buttons */
 .level-selection {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #534664;
   padding: 10px;
-  background-color: #fcfcfc;
+  border-radius: 8px;
 }
 
 .level-selection button {
-  background-color: #6a93bf27;
+  background-color: #4c3e77;
   color: black;
   padding: 10px 20px;
-  border: none;
+  margin: 5px;
+  border: 2px solid #000000; /* Same border color as the sections */
+  border-radius: 5px;
   cursor: pointer;
-  min-width: 80px; /* Ensures each button has the same size */
+  min-width: 80px;
+  font-weight: bold;
 }
 
 .level-selection button:hover {
-  background-color: #fa8bf8;
+  background-color: #dc91d9;
 }
 
-.level-selection button:focus {
-  outline: none;
+/* Leaderboard styling */
+.leaderboard {
+  background-color: #859be7;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.leaderboard li {
+  margin-bottom: 8px; /* Adds spacing between leaderboard items */
+}
+
+/* Legend styling */
+.legend {
+  background-color: #837edf;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.legend li {
+  margin-bottom: 8px; /* Adds spacing between legend items */
+}
+
+/* Current Speed section styling */
+.current-speed {
+  background-color: #a78ac6;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  margin-top: 15px;
+  border-radius: 8px;
 }
