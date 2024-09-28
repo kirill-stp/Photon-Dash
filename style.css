@@ -20,13 +20,14 @@ body {
 }
 
 .column1 {
-  width: 800px;
+  width: 70%;
   background-color: #aaa;
 }
 
 .column2 {
-  width: 500px;
+  width: 28%;
   background-color: #bbb;
+  margin-left: 2%; /* Adding some space between the two columns */
 }
 
 .row:after {
