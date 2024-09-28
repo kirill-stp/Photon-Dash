@@ -4,28 +4,56 @@
     "playerStart": { "x": 300, "y": 600 },
     "objects": [
         {
+            "name": "left_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 0},
             "bottomRightPosition": {"x": 4, "y": 600}
         },
         {
+            "name": "right_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 596, "y": 0},
-            "bottomRightPosition": {"x": 596, "y": 600}
+            "bottomRightPosition": {"x": 600, "y": 600}
         },
         {
+            "name": "top_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 0},
             "bottomRightPosition": {"x": 500, "y": 4}
         },
         {
+            "name": "bottom_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 596},
             "bottomRightPosition": {"x": 600, "y": 600}
+        },
+        {
+            "name": "horizontal_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 250, "y": 300},
+            "bottomRightPosition": {"x": 280, "y": 304}
+        },
+        {
+            "name": "vertical_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 100, "y": 200},
+            "bottomRightPosition": {"x": 104, "y": 230}
+        },
+        {
+            "name": "hortizontal_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 510, "y": 430},
+            "bottomRightPosition": {"x": 530, "y": 434}
+        },
+        {
+            "name": "hortizontal_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 30, "y": 100},
+            "bottomRightPosition": {"x": 50, "y": 104}
         }
     ],
     "finishLine": {
         "topLeftPosition": {"x": 501, "y": 0},
-        "bottomRightPosition": {"x": 596, "y": 600}
+        "bottomRightPosition": {"x": 596, "y": 4}
     }
 }
