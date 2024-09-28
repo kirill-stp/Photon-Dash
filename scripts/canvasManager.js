@@ -1,4 +1,4 @@
-class CanvasManager {
+export class CanvasManager {
   constructor(canvasId) {
     // Get the canvas and context
     this.canvas = document.getElementById(canvasId);
@@ -170,12 +170,3 @@ class CanvasManager {
     this.drawScene();
   }
 }
-
-// Initialize the CanvasManager
-const canvasManager = new CanvasManager("gameCanvas");
-
-// Start the level and draw obstacles
-canvasManager.initializeLevel("levels/level_1.json");
-
-// Example of updating the photon position
-canvasManager.updatePhotonPosition(450, 350); // Change this to whatever values you want
