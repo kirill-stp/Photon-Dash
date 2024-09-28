@@ -3,12 +3,12 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 // Load background image
-const backgroundImage = new Image();
-backgroundImage.src = "space-image.jpg"; // Replace with your image path
+// const backgroundImage = new Image();
+// backgroundImage.src = "space-image.jpg"; // Replace with your image path
 
 backgroundImage.onload = () => {
   // Draw the background image once it's loaded
-  loadLevelData(); // Load level data after background is drawn
+  //   loadLevelData(); // Load level data after background is drawn
 };
 
 // Function to load level data from JSON file
@@ -23,7 +23,7 @@ function loadLevelData() {
     .then((levelData) => {
       console.log("Level data loaded:", levelData); // Debug: Check if level data is loaded
       setCanvasSize(levelData.dimensions); // Set the canvas size dynamically
-      drawBackground();
+      //   drawBackground();
       drawObstacles(levelData); // Call to draw obstacles with loaded data
     })
     .catch((error) => {
@@ -39,10 +39,10 @@ function setCanvasSize(dimensions) {
 }
 
 // Function to draw the background image on the canvas
-function drawBackground() {
-  ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-  console.log("Background drawn"); // Debug: Confirm background drawn
-}
+// function drawBackground() {
+//   ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+//   console.log("Background drawn"); // Debug: Confirm background drawn
+// }
 
 // Function to draw obstacles (mirrors)
 function drawObstacles(levelData) {
