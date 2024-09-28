@@ -1,4 +1,4 @@
-class CanvasManager {
+export class CanvasManager {
   constructor(canvasId) {
     // Get the canvas and context
     this.canvas = document.getElementById(canvasId);
@@ -25,7 +25,7 @@ class CanvasManager {
         console.log("Level data loaded:", levelData); // Debug: Check if level data is loaded
         this.setCanvasSize(levelData.dimensions); // Set the canvas size dynamically
         this.levelData = levelData; // Store level data for redrawing
-        this.drawObstacles(levelData); // Call to draw obstacles with loaded data
+        this.drawObstacles(); // Call to draw obstacles after level data is loaded
         this.drawPhoton(this.photonPosition.x, this.photonPosition.y); // Draw photon at initial position
       })
       .catch((error) => {
@@ -41,15 +41,14 @@ class CanvasManager {
   }
 
   // Method to draw obstacles (mirrors)
-  drawObstacles(levelData) {
-    levelData.objects.forEach((obstacle) => {
-      if (obstacle.type === "mirror") {
-        console.log(
-          "Drawing mirror at:",
-          obstacle.topLeftPosition,
-          obstacle.bottomRightPosition
-        ); // Debug: Log mirror positions
+  drawObstacles() {
+    if (!this.levelData) {
+      console.error("No level data available to draw obstacles");
+      return;
+    }
 
+    this.levelData.objects.forEach((obstacle) => {
+      if (obstacle.type === "mirror") {
         this.ctx.fillStyle = "rgba(0, 255, 0, 0.8)"; // Set color for mirrors (make it more visible)
 
         // Calculate mirror width and height
@@ -65,8 +64,6 @@ class CanvasManager {
           mirrorWidth,
           mirrorHeight
         );
-
-        console.log("Mirror drawn with size:", mirrorWidth, mirrorHeight); // Debug: Confirm mirror is drawn
       }
     });
   }
@@ -78,7 +75,7 @@ class CanvasManager {
     this.clearCanvas(); // Clear the previous frame
 
     // Redraw obstacles to ensure they appear
-    this.drawObstacles(this.levelData);
+    this.drawObstacles();
 
     this.ctx.beginPath();
     this.ctx.arc(x, y, 5, 0, Math.PI * 2, true); // Draw a small circle representing the photon
@@ -101,12 +98,3 @@ class CanvasManager {
     this.drawPhoton(this.photonPosition.x, this.photonPosition.y); // Draw the photon at the new position
   }
 }
-
-// Initialize the CanvasManager
-const canvasManager = new CanvasManager("gameCanvas");
-
-// Start the level and draw obstacles
-canvasManager.initializeLevel("levels/level_1.json");
-
-// Example of updating the photon position
-canvasManager.updatePhotonPosition(150, 250); // Change this to whatever values you want
