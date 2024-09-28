@@ -12,16 +12,16 @@ body {
 
 /* Title styling */
 .title {
+  text-align: center;
   font-family: "Poppins", "Playfair Display", serif;
   font-size: 50px;
-  text-align: center;
-  color: #40085d; /* Matches the color palette */
+  color: #40085d;
   letter-spacing: 2px;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin: 20px auto 30px auto;
   text-shadow: 2px 2px 5px rgba(93, 27, 135, 0.2);
-  border-bottom: 3px solid #000000; /* Add a decorative border under the title */
-  display: inline-block;
+  border-bottom: 3px solid #000000;
+  display: block;
+  width: fit-content;
   padding-bottom: 10px;
 }
 
@@ -85,7 +85,7 @@ h2 {
   background-color: #cac3d4;
   padding: 10px;
   border-radius: 8px;
-  border: 2px solid #090909;
+  border: 2px solid #000000;
 }
 
 .level-selection button {
@@ -93,7 +93,7 @@ h2 {
   color: rgb(255, 255, 255);
   padding: 10px 20px;
   margin: 5px;
-  border: 2px solid #000000; /* Same border color as the sections */
+  border: 2px solid #000000;
   border-radius: 5px;
   cursor: pointer;
   min-width: 80px;
@@ -112,7 +112,7 @@ h2 {
   text-align: left;
   margin-bottom: 15px;
   border-radius: 8px;
-  border: 2px solid #090909;
+  border: 2px solid #000000;
 }
 
 .leaderboard li {
@@ -122,7 +122,7 @@ h2 {
 /* Legend styling */
 .legend {
   background-color: #837edf;
-  border: 2px solid #090909;
+  border: 2px solid #000000;
   color: white;
   padding: 20px;
   text-align: left;
@@ -136,7 +136,7 @@ h2 {
 /* Current Speed section styling */
 .current-speed {
   background-color: #a78ac6;
-  border: 2px solid #090909;
+  border: 2px solid #000000;
   color: white;
   padding: 20px;
   text-align: left;
