@@ -1,4 +1,4 @@
-class CanvasManager {
+export class CanvasManager {
   constructor(canvasId) {
     // Get the canvas and context
     this.canvas = document.getElementById(canvasId);
@@ -67,6 +67,3 @@ class CanvasManager {
     });
   }
 }
-
-canvasManager = new CanvasManager("gameCanvas");
-canvasManager.initializeLevel("levels/level_1.json");
