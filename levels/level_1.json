@@ -31,25 +31,25 @@
             "name": "horizontal_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 250, "y": 300},
-            "bottomRightPosition": {"x": 280, "y": 304}
+            "bottomRightPosition": {"x": 310, "y": 304}
         },
         {
             "name": "vertical_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 100, "y": 200},
-            "bottomRightPosition": {"x": 104, "y": 230}
+            "bottomRightPosition": {"x": 104, "y": 260}
         },
         {
             "name": "hortizontal_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 510, "y": 430},
+            "topLeftPosition": {"x": 410, "y": 430},
             "bottomRightPosition": {"x": 530, "y": 434}
         },
         {
             "name": "hortizontal_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 30, "y": 100},
-            "bottomRightPosition": {"x": 50, "y": 104}
+            "bottomRightPosition": {"x": 80, "y": 104}
         }
     ],
     "finishLine": {
