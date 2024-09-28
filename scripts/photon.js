@@ -39,10 +39,10 @@ export class Photon {
         this.pos.y = newY;
     }
 
-    // changes speed according to modifiers dx and dy
-    bounce() {
-        this.pos.x = dx * this.pos.x;
-        this.pos.y = dx * this.pos.y;
+    // Changes speed according to dx and dy (1 or -1)
+    bounce(dx, dy) {
+        this.xspeed *= dx;
+        this.yspeed *= dy;
     }
 }
   

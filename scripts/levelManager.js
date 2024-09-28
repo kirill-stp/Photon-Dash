@@ -46,7 +46,27 @@ export class LevelManager {
         for (let object of this.levelData.objects) {
             if (this.detectCollision(object, nextPos)) {
                 console.log(`Collision detected with ${object.name}`);
-                //this.photon.bounce();  // Adjust photon's speed if needed
+                
+                // Determine direction of bounce (horizontal or vertical)
+                const objectLeft = object.topLeftPosition.x;
+                const objectRight = object.bottomRightPosition.x;
+                const objectTop = object.topLeftPosition.y;
+                const objectBottom = object.bottomRightPosition.y;
+
+                let dx = 1, dy = 1;
+
+                // Horizontal bounce (left or right edge)
+                if (nextPos.x <= objectLeft || nextPos.x >= objectRight) {
+                    dx = -1;  // Reverse horizontal direction
+                }
+
+                // Vertical bounce (top or bottom edge)
+                if (nextPos.y <= objectTop || nextPos.y >= objectBottom) {
+                    dy = -1;  // Reverse vertical direction
+                }
+
+                // Bounce the photon with the appropriate direction
+                this.photon.bounce(dx, dy);
                 break;
             }
         }
