@@ -6,10 +6,10 @@ const ctx = canvas.getContext("2d");
 // const backgroundImage = new Image();
 // backgroundImage.src = "space-image.jpg"; // Replace with your image path
 
-backgroundImage.onload = () => {
-  // Draw the background image once it's loaded
-  //   loadLevelData(); // Load level data after background is drawn
-};
+// backgroundImage.onload = () => {
+// Draw the background image once it's loaded
+//   loadLevelData(); // Load level data after background is drawn
+// };
 
 // Function to load level data from JSON file
 function loadLevelData() {
