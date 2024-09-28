@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.game-screen {
+  width: 75%;
+  background-image: url("https://images.unsplash.com/photo-1510563166154-a26c4a5d6133?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fHNwYWNlfGVufDB8fHx8MTYxNjE5MjU3MA&ixlib=rb-1.2.1&q=80&w=1080");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboard {
+  width: 25%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.proton-blob {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.direction-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid white;
+  position: absolute;
+  top: -30px;
+}
+
+.leaderboard h2 {
+  margin-bottom: 20px;
+}
+
+.leaderboard ul {
+  list-style-type: none;
+}
+
+.leaderboard ul li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
