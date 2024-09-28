@@ -7,12 +7,12 @@ export class Point {
 
 export class Photon {
     constructor(pos, xspeed, yspeed) {
-        this.pos = pos;
-        this.xspeed = xspeed;
-        this.yspeed = yspeed;
+        this.pos = pos; // Instance of Point
+        this.xspeed = xspeed; // Speed along the x-axis
+        this.yspeed = yspeed; // Speed along the y-axis
     }
 
-    getPos(){
+    getPos() {
         return this.pos;
     }
 
@@ -24,19 +24,17 @@ export class Photon {
         return this.yspeed;
     }
 
-    // probes the next position and returns it
+    // Probes the next position and returns a new Point
     probePos() {
-        newX = this.x + this.xspeed;
-        newY = this.y + this.yspeed;
-        return new Point(newX,newY);
+        const nextX = this.pos.x + this.xspeed; // Calculate next x-coordinate
+        const nextY = this.pos.y + this.yspeed; // Calculate next y-coordinate
+        return new Point(nextX, nextY); // Return a new Point with the next position
     }
 
-    // updates position according to speed
+    // Updates position according to speed
     updatePos() {
-        newX = this.x + this.xspeed;
-        newY = this.y + this.yspeed;
-        this.pos.x = newX;
-        this.pos.y = newY;
+        this.pos.x += this.xspeed;
+        this.pos.y += this.yspeed;
     }
 
     // Changes speed according to dx and dy (1 or -1)
@@ -45,4 +43,3 @@ export class Photon {
         this.yspeed *= dy;
     }
 }
-  
