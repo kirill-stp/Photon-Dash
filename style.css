@@ -1,70 +1,95 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+/* General body styles */
 body {
   font-family: Arial, sans-serif;
-  display: flex;
-  height: 100vh;
+  background-color: #f6f6f6;
 }
 
-.container {
-  display: flex;
-  width: 100%;
-}
-
-.game-screen {
+/* Create two equal columns that float next to each other */
+.column1 {
+  float: left;
   width: 75%;
-  background-image: url("https://images.unsplash.com/photo-1510563166154-a26c4a5d6133?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fHNwYWNlfGVufDB8fHx8MTYxNjE5MjU3MA&ixlib=rb-1.2.1&q=80&w=1080");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.leaderboard {
-  width: 25%;
-  background-color: #f4f4f4;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.proton-blob {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  border-radius: 50%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.direction-arrow {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 20px solid white;
-  position: absolute;
-  top: -30px;
-}
-
-.leaderboard h2 {
-  margin-bottom: 20px;
-}
-
-.leaderboard ul {
-  list-style-type: none;
-}
-
-.leaderboard ul li {
-  margin-bottom: 10px;
   padding: 10px;
-  background-color: #ddd;
-  border-radius: 5px;
+}
+
+/* Create two equal columns that float next to each other */
+.column2 {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Timer styling */
+.timer {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Canvas styling */
+#gameCanvas {
+  background-color: #ffffff;
+  width: 100%;
+  height: 550px;
+}
+
+/* Leaderboard and legend styling */
+.leaderboard {
+  background-color: #c887dd;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.leaderboard li {
+  margin-bottom: 5px; /* Adds spacing between each leaderboard item */
+}
+
+.legend {
+  background-color: #6950e8;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.legend li {
+  margin-bottom: 5px; /* Adds spacing between each legend item */
+}
+
+/* Level buttons */
+.level-selection {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #fcfcfc;
+}
+
+.level-selection button {
+  background-color: #6a93bf27;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  min-width: 80px; /* Ensures each button has the same size */
+}
+
+.level-selection button:hover {
+  background-color: #fa8bf8;
+}
+
+.level-selection button:focus {
+  outline: none;
 }
