@@ -1,7 +1,7 @@
 {
-    "levelNumber": 3,
+    "levelNumber": 2,
     "dimensions": { "width": 1000, "height": 600 },
-    "playerStart": { "x": 500, "y": 600 },
+    "playerStart": { "x": 500, "y": 590 },
     "objects": [
         {
             "name": "left_mirror",
@@ -12,32 +12,32 @@
         {
             "name": "right_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 592, "y": 0},
-            "bottomRightPosition": {"x": 600, "y": 600}
+            "topLeftPosition": {"x": 992, "y": 0},
+            "bottomRightPosition": {"x": 1000, "y": 600}
         },
         {
             "name": "top_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 0},
-            "bottomRightPosition": {"x": 500, "y": 8}
+            "bottomRightPosition": {"x": 900, "y": 8}
         },
         {
             "name": "bottom_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 0, "y": 592},
-            "bottomRightPosition": {"x": 600, "y": 600}
+            "bottomRightPosition": {"x": 1000, "y": 600}
         },
         {
             "name": "horizontal_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 150, "y": 300},
-            "bottomRightPosition": {"x": 310, "y": 308}
+            "topLeftPosition": {"x": 250, "y": 300},
+            "bottomRightPosition": {"x": 510, "y": 308}
         },
         {
             "name": "vertical_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 100, "y": 200},
-            "bottomRightPosition": {"x": 108, "y": 260}
+            "bottomRightPosition": {"x": 108, "y": 360}
         },
         {
             "name": "hortizontal_mirror",
@@ -48,26 +48,26 @@
         {
             "name": "hortizontal_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 30, "y": 100},
-            "bottomRightPosition": {"x": 140, "y": 108}
+            "topLeftPosition": {"x": 130, "y": 100},
+            "bottomRightPosition": {"x": 340, "y": 108}
         },
         {
             "name": "vertical_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 800, "y": 400},
+            "bottomRightPosition": {"x": 808, "y": 560}
         },
         {
             "name": "wall_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 992, "y": 100},
+            "bottomRightPosition": {"x": 1000, "y": 200}
         },
         {
             "name": "wall_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 600, "y": 0},
+            "bottomRightPosition": {"x": 80, "y": 8}
         },
         {
             "name": "wall_void",
@@ -78,24 +78,24 @@
         {
             "name": "floating_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 400, "y": 592},
+            "bottomRightPosition": {"x": 480, "y": 600}
         },
         {
             "name": "floating_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 300, "y": 80},
+            "bottomRightPosition": {"x": 380, "y": 120}
         },
         {
             "name": "floating_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 30, "y": 500},
+            "bottomRightPosition": {"x": 158, "y": 590}
         }
     ],
     "finishLine": {
-        "topLeftPosition": {"x": 501, "y": 0},
-        "bottomRightPosition": {"x": 596, "y": 4}
+        "topLeftPosition": {"x": 901, "y": 0},
+        "bottomRightPosition": {"x": 992, "y": 8}
     }
 }
