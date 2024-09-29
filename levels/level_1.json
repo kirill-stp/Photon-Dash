@@ -1,7 +1,7 @@
 {
     "levelNumber": 1,
     "dimensions": { "width": 1000, "height": 600 },
-    "playerStart": { "x": 500, "y": 600 },
+    "playerStart": { "x": 500, "y": 590 },
     "objects": [
         {
             "name": "left_mirror",
@@ -59,7 +59,7 @@
         }
     ],
     "finishLine": {
-        "topLeftPosition": {"x": 501, "y": 0},
-        "bottomRightPosition": {"x": 596, "y": 4}
+        "topLeftPosition": {"x": 901, "y": 0},
+        "bottomRightPosition": {"x": 996, "y": 8}
     }
 }

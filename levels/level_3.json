@@ -1,7 +1,7 @@
 {
     "levelNumber": 3,
-    "dimensions": { "width": 600, "height": 600 },
-    "playerStart": { "x": 300, "y": 600 },
+    "dimensions": { "width": 1000, "height": 600 },
+    "playerStart": { "x": 500, "y": 600 },
     "objects": [
         {
             "name": "left_mirror",
