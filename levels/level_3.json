@@ -42,8 +42,8 @@
         {
             "name": "hortizontal_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 410, "y": 430},
-            "bottomRightPosition": {"x": 530, "y": 438}
+            "topLeftPosition": {"x": 570, "y": 380},
+            "bottomRightPosition": {"x": 700, "y": 388}
         },
         {
             "name": "hortizontal_mirror",
@@ -70,10 +70,10 @@
             "bottomRightPosition": {"x": 80, "y": 8}
         },
         {
-            "name": "wall_void",
+            "name": "floating_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
+            "topLeftPosition": {"x": 600, "y": 400},
+            "bottomRightPosition": {"x": 680, "y": 460}
         },
         {
             "name": "floating_void",
@@ -84,14 +84,14 @@
         {
             "name": "floating_void",
             "type": "void",
-            "topLeftPosition": {"x": 300, "y": 80},
-            "bottomRightPosition": {"x": 380, "y": 120}
+            "topLeftPosition": {"x": 600, "y": 80},
+            "bottomRightPosition": {"x": 680, "y": 120}
         },
         {
             "name": "floating_void",
             "type": "void",
-            "topLeftPosition": {"x": 30, "y": 500},
-            "bottomRightPosition": {"x": 158, "y": 590}
+            "topLeftPosition": {"x": 130, "y": 500},
+            "bottomRightPosition": {"x": 258, "y": 590}
         }
     ],
     "finishLine": {
