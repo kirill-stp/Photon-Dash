@@ -74,7 +74,7 @@ export class CanvasManager {
           obstacle.bottomRightPosition
         ); // Debug: Log mirror positions
 
-        this.ctx.fillStyle = "rgba(0, 255, 0, 0.8)"; // Set color for mirrors (make it more visible)
+        this.ctx.fillStyle = "rgba(80, 80, 80, 0.8)"; // Set color for mirrors (make it more visible)
 
         // Calculate mirror width and height
         const mirrorWidth =
@@ -110,7 +110,7 @@ export class CanvasManager {
           object.bottomRightPosition
         ); // Debug: Log void positions
 
-        this.ctx.fillStyle = "rgba(255, 0, 0, 0.5)"; // Set color for voids (make it visible)
+        this.ctx.fillStyle = "rgba( 27, 38, 49, 1)"; // Set color for voids (make it visible)
 
         // Calculate void width and height
         const voidWidth =
