@@ -59,7 +59,7 @@
     }
   ],
   "finishLine": {
-    "topLeftPosition": { "x": 501, "y": 0 },
-    "bottomRightPosition": { "x": 596, "y": 4 }
+    "topLeftPosition": { "x": 901, "y": 0 },
+    "bottomRightPosition": { "x": 996, "y": 8 }
   }
 }
