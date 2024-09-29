@@ -42,8 +42,8 @@
         {
             "name": "hortizontal_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 410, "y": 430},
-            "bottomRightPosition": {"x": 530, "y": 438}
+            "topLeftPosition": {"x": 810, "y": 130},
+            "bottomRightPosition": {"x": 930, "y": 138}
         },
         {
             "name": "hortizontal_mirror",
@@ -54,44 +54,14 @@
         {
             "name": "vertical_mirror",
             "type": "mirror",
-            "topLeftPosition": {"x": 800, "y": 400},
-            "bottomRightPosition": {"x": 808, "y": 560}
+            "topLeftPosition": {"x": 600, "y": 400},
+            "bottomRightPosition": {"x": 608, "y": 560}
         },
         {
-            "name": "wall_void",
-            "type": "void",
-            "topLeftPosition": {"x": 992, "y": 100},
-            "bottomRightPosition": {"x": 1000, "y": 200}
-        },
-        {
-            "name": "wall_void",
-            "type": "void",
-            "topLeftPosition": {"x": 600, "y": 0},
-            "bottomRightPosition": {"x": 80, "y": 8}
-        },
-        {
-            "name": "wall_void",
-            "type": "void",
-            "topLeftPosition": {"x": 300, "y": 400},
-            "bottomRightPosition": {"x": 308, "y": 460}
-        },
-        {
-            "name": "floating_void",
-            "type": "void",
-            "topLeftPosition": {"x": 400, "y": 592},
-            "bottomRightPosition": {"x": 480, "y": 600}
-        },
-        {
-            "name": "floating_void",
-            "type": "void",
-            "topLeftPosition": {"x": 300, "y": 80},
-            "bottomRightPosition": {"x": 380, "y": 120}
-        },
-        {
-            "name": "floating_void",
-            "type": "void",
-            "topLeftPosition": {"x": 30, "y": 500},
-            "bottomRightPosition": {"x": 158, "y": 590}
+            "name": "vertical_mirror",
+            "type": "mirror",
+            "topLeftPosition": {"x": 700, "y": 220},
+            "bottomRightPosition": {"x": 708, "y": 340}
         }
     ],
     "finishLine": {
