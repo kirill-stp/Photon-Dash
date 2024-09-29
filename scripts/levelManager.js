@@ -5,11 +5,12 @@ export class LevelManager {
     constructor(){
         let point = new Point(0,0);
         // TODO: add variable speed
-        this.photon = new Photon(point,1,1);
+        this.photon = new Photon(point, 1, 1);
+        this.levelData = null;
     }
 
     loadLevel(filename) {
-        fetch(filename)
+        return fetch(filename)  // Return the fetch promise
             .then(response => response.json())  // Parse the JSON file
             .then(levelData => {
                 this.levelData = levelData;
@@ -32,8 +33,8 @@ export class LevelManager {
         const photonY = nextPos.y;
 
         // Check if photon is inside the object’s boundaries
-        return photonX > objectLeft && photonX < objectRight &&
-               photonY > objectTop && photonY < objectBottom;
+        return photonX >= objectLeft && photonX <= objectRight &&
+               photonY >= objectTop && photonY <= objectBottom;
     }
 
     update() {
@@ -47,34 +48,27 @@ export class LevelManager {
             if (this.detectCollision(object, nextPos)) {
                 console.log(`Collision detected with ${object.name}`);
                 
-                // Determine direction of bounce (horizontal or vertical)
-                const objectLeft = object.topLeftPosition.x;
-                const objectRight = object.bottomRightPosition.x;
-                const objectTop = object.topLeftPosition.y;
-                const objectBottom = object.bottomRightPosition.y;
-
                 let dx = 1, dy = 1;
 
                 // Horizontal bounce (left or right edge)
-                if (nextPos.x <= objectLeft || nextPos.x >= objectRight) {
+                if (nextPos.x <= object.topLeftPosition.x || nextPos.x >= object.bottomRightPosition.x) {
                     dx = -1;  // Reverse horizontal direction
                 }
 
                 // Vertical bounce (top or bottom edge)
-                if (nextPos.y <= objectTop || nextPos.y >= objectBottom) {
+                if (nextPos.y <= object.topLeftPosition.y || nextPos.y >= object.bottomRightPosition.y) {
                     dy = -1;  // Reverse vertical direction
                 }
 
-                // Bounce the photon with the appropriate direction
-                this.photon.bounce(dx, dy);
+                this.photon.bounce(dx, dy);  // Bounce the photon
                 break;
             }
         }
 
-        // Update photon's position if no collision detected
+        // Update the photon's position if no collision detected
         this.photon.updatePos();
 
-        // Check collision with finish line
+        // Check collision with the finish line
         if (this.detectCollision(this.levelData.finishLine, nextPos)) {
             console.log("Player has reached the finish line!");
         }

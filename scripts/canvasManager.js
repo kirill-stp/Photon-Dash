@@ -40,7 +40,7 @@ export class CanvasManager {
 
   // Method to set canvas width and height from JSON dimensions
   setCanvasSize(dimensions) {
-    console.log("Setting canvas size:", dimensions); // Debug: Log canvas size
+    //console.log("Setting canvas size:", dimensions); // Debug: Log canvas size
     this.canvas.width = dimensions.width;
     this.canvas.height = dimensions.height;
   }
@@ -67,11 +67,11 @@ export class CanvasManager {
 
     levelData.objects.forEach((obstacle) => {
       if (obstacle.type === "mirror") {
-        console.log(
+        /*console.log(
           "Drawing mirror at:",
           obstacle.topLeftPosition,
           obstacle.bottomRightPosition
-        ); // Debug: Log mirror positions
+        ); // Debug: Log mirror positions*/
 
         this.ctx.fillStyle = "rgba(80, 80, 80, 0.8)"; // Set color for mirrors (make it more visible)
 
@@ -89,14 +89,14 @@ export class CanvasManager {
           mirrorHeight
         );
 
-        console.log("Mirror drawn with size:", mirrorWidth, mirrorHeight); // Debug: Confirm mirror is drawn
+        //console.log("Mirror drawn with size:", mirrorWidth, mirrorHeight); // Debug: Confirm mirror is drawn
       }
     });
   }
 
   // Method to draw the photon at specific coordinates
   drawPhoton(x, y) {
-    console.log("Drawing photon at:", x, y); // Debug: Log photon position
+    //console.log("Drawing photon at:", x, y); // Debug: Log photon position
 
     this.ctx.beginPath();
     this.ctx.arc(x, y, 5, 0, Math.PI * 2, true); // Draw a small circle representing the photon
@@ -104,7 +104,7 @@ export class CanvasManager {
     this.ctx.fill();
     this.ctx.closePath();
 
-    console.log("Photon drawn at:", x, y); // Debug: Confirm photon is drawn
+    //console.log("Photon drawn at:", x, y); // Debug: Confirm photon is drawn
   }
 
   // Method to clear the canvas
@@ -121,7 +121,7 @@ export class CanvasManager {
 
   // Method to draw an arrow from (x0, y0) to (x1, y1)
   drawArrow(x0, y0, x1, y1) {
-    console.log(`Drawing arrow from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Log arrow drawing
+    //console.log(`Drawing arrow from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Log arrow drawing
 
     const headLength = 10; // Length of the arrow head
 
@@ -149,7 +149,7 @@ export class CanvasManager {
     this.ctx.fill();
     this.ctx.closePath();
 
-    console.log(`Arrow drawn from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Confirm arrow is drawn
+    //console.log(`Arrow drawn from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Confirm arrow is drawn
   }
 
   // Method to handle canvas clicks
@@ -161,7 +161,7 @@ export class CanvasManager {
     const x = (event.clientX - rect.left) * scaleX; // Adjust for canvas scale
     const y = (event.clientY - rect.top) * scaleY; // Adjust for canvas scale
 
-    console.log(`Canvas clicked at: (${x}, ${y})`); // Debug: Log click position
+    //console.log(`Canvas clicked at: (${x}, ${y})`); // Debug: Log click position
 
     // Update the target position for the arrow to point to the click location
     this.targetPosition = { x: x, y: y };
