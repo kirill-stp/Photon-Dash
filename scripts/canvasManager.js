@@ -73,7 +73,7 @@ export class CanvasManager {
           obstacle.bottomRightPosition
         ); // Debug: Log mirror positions
 
-        this.ctx.fillStyle = "rgba(0, 255, 0, 0.8)"; // Set color for mirrors (make it more visible)
+        this.ctx.fillStyle = "rgba(80, 80, 80, 0.8)"; // Set color for mirrors (make it more visible)
 
         // Calculate mirror width and height
         const mirrorWidth =
