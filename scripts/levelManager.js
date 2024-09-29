@@ -39,38 +39,46 @@ export class LevelManager {
 
     update() {
         if (!this.levelData) return; // Ensure level data is loaded
-
-        // Get the photon's next position
-        const nextPos = this.photon.probePos();
-
+    
+        const nextPos = this.photon.probePos(); // Calculate next position
+    
         // Check collisions with all objects
         for (let object of this.levelData.objects) {
             if (this.detectCollision(object, nextPos)) {
                 console.log(`Collision detected with ${object.name}`);
-                
+    
                 let dx = 1, dy = 1;
-
-                // Horizontal bounce (left or right edge)
-                if (nextPos.x <= object.topLeftPosition.x || nextPos.x >= object.bottomRightPosition.x) {
-                    dx = -1;  // Reverse horizontal direction
+    
+                // Convert the object name to lowercase for easier matching
+                const objectName = object.name.toLowerCase();
+    
+                // Reverse horizontal direction if the object is named 'left', 'right', or 'vertical'
+                if (objectName.includes('left') || objectName.includes('right') || objectName.includes('vertical')) {
+                    dx = -1;
+                    console.log('Horizontal bounce detected (left/right/vertical)');
                 }
-
-                // Vertical bounce (top or bottom edge)
-                if (nextPos.y <= object.topLeftPosition.y || nextPos.y >= object.bottomRightPosition.y) {
-                    dy = -1;  // Reverse vertical direction
+    
+                // Reverse vertical direction if the object is named 'top', 'bottom', or 'horizontal'
+                if (objectName.includes('top') || objectName.includes('bottom') || objectName.includes('horizontal')) {
+                    dy = -1;
+                    console.log('Vertical bounce detected (top/bottom/horizontal)');
                 }
-
-                this.photon.bounce(dx, dy);  // Bounce the photon
-                break;
+    
+                // Apply the bounce to the photon
+                this.photon.bounce(dx, dy);
+                break; // Only bounce once per frame
             }
         }
-
+    
         // Update the photon's position if no collision detected
         this.photon.updatePos();
-
+    
         // Check collision with the finish line
         if (this.detectCollision(this.levelData.finishLine, nextPos)) {
             console.log("Player has reached the finish line!");
         }
     }
+    
+    
+    
 }

@@ -5,28 +5,58 @@ import { LevelManager } from "./levelManager.js";
 const canvasManager = new CanvasManager("gameCanvas");
 const levelManager = new LevelManager();
 
+let isLaunchConfirmed = false; // Track if launch is confirmed
+
 // Load the level data and initialize the game
 function startGame(levelNumber) {
-    const levelJson = `levels/level_${levelNumber}.json`; // Dynamically load the level based on the number
+    const levelJson = `levels/level_${levelNumber}.json`;
     levelManager.loadLevel(levelJson).then(() => {
-        // Set canvas size based on level data
         canvasManager.setCanvasSize(levelManager.levelData.dimensions);
-
-        // Pass level data to CanvasManager to draw obstacles
         canvasManager.levelData = levelManager.levelData;
-        canvasManager.drawObstacles();
-
-        // Set the initial photon position on the canvas
         canvasManager.updatePhotonPosition(levelManager.photon.pos.x, levelManager.photon.pos.y);
 
-        // Start the animation loop
-        requestAnimationFrame(gameLoop);
+        // Listen for mouse clicks to set the launch direction
+        canvasManager.canvas.addEventListener('click', handleMouseClick);
 
-        // Start the timer
-        startTimer();
+        // Listen for spacebar to confirm launch
+        document.addEventListener('keydown', handleSpacebarPress);
     }).catch(error => {
         console.error("Failed to load level:", error);
     });
+}
+
+// Handle mouse click to calculate the launch direction
+function handleMouseClick(event) {
+    // Delegate the arrow drawing and direction handling to the CanvasManager
+    canvasManager.handleMouseClick(event, levelManager.photon.pos);
+}
+
+// Handle spacebar press to confirm the launch
+function handleSpacebarPress(event) {
+    if (event.code === 'Space' && !isLaunchConfirmed) {
+        isLaunchConfirmed = true;
+
+        // Set the photon's speed based on the calculated launch direction (constant magnitude)
+        const direction = canvasManager.getLaunchDirection();
+        const speed = 2; // Constant speed
+        levelManager.photon.xspeed = direction.x * speed;
+        levelManager.photon.yspeed = direction.y * speed;
+
+        console.log("Launch confirmed. Photon speed set.");
+
+        // Hide the arrow after launching
+        canvasManager.hideArrow();
+
+        // Start the timer
+        startTimer();
+
+        // Remove event listeners after the launch
+        canvasManager.canvas.removeEventListener('click', handleMouseClick);
+        document.removeEventListener('keydown', handleSpacebarPress);
+
+        // Start the animation loop
+        requestAnimationFrame(gameLoop);
+    }
 }
 
 // Animation loop function
@@ -37,11 +67,13 @@ function gameLoop() {
     // Update the photon's position on the canvas
     canvasManager.updatePhotonPosition(levelManager.photon.pos.x, levelManager.photon.pos.y);
 
-    // Continue the loop
-    requestAnimationFrame(gameLoop);
+    // Continue the loop if the photon is launched
+    if (isLaunchConfirmed) {
+        requestAnimationFrame(gameLoop);
+    }
 }
 
-// Timer functionality (same as before)
+// Timer functionality (starts after pressing spacebar)
 let startTime;
 let timerInterval;
 const timerElement = document.getElementById('timer');

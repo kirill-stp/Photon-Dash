@@ -1,7 +1,7 @@
 {
     "levelNumber": 1,
     "dimensions": { "width": 1000, "height": 600 },
-    "playerStart": { "x": 500, "y": 600 },
+    "playerStart": { "x": 500, "y": 590 },
     "objects": [
         {
             "name": "left_mirror",
@@ -40,13 +40,13 @@
             "bottomRightPosition": {"x": 638, "y": 570}
         },
         {
-            "name": "hortizontal_mirror",
+            "name": "horizontal_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 710, "y": 430},
             "bottomRightPosition": {"x": 930, "y": 438}
         },
         {
-            "name": "hortizontal_mirror",
+            "name": "horizontal_mirror",
             "type": "mirror",
             "topLeftPosition": {"x": 130, "y": 500},
             "bottomRightPosition": {"x": 380, "y": 508}

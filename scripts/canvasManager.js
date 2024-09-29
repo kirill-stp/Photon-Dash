@@ -1,172 +1,131 @@
 export class CanvasManager {
   constructor(canvasId) {
-    // Get the canvas and context
-    this.canvas = document.getElementById(canvasId);
-    this.ctx = this.canvas.getContext("2d");
-    this.photonPosition = { x: 0, y: 0 }; // Initial position of the photon
-    this.targetPosition = { x: 200, y: 300 }; // Initial target position for the arrow
-    this.levelData = null; // To store level data for redrawing
-
-    // Bind the mouse click event to the canvas
-    this.canvas.addEventListener("click", (event) =>
-      this.handleCanvasClick(event)
-    );
+      this.canvas = document.getElementById(canvasId);
+      this.ctx = this.canvas.getContext("2d");
+      this.photonPosition = { x: 0, y: 0 }; // Initial position of the photon
+      this.levelData = null; // To store level data for redrawing
+      this.arrowStart = { x: 0, y: 0 };
+      this.arrowEnd = { x: 0, y: 0 };
+      this.isArrowVisible = false;
   }
 
-  // Method to initialize the canvas and load the level data
-  initializeLevel(levelJsonPath) {
-    this.loadLevelData(levelJsonPath); // Load level data directly
+  // Set canvas size based on level data
+  setCanvasSize(dimensions) {
+      this.canvas.width = dimensions.width;
+      this.canvas.height = dimensions.height;
   }
 
-  // Method to load level data from JSON file
-  loadLevelData(levelJsonPath) {
-    fetch(levelJsonPath)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((levelData) => {
-        console.log("Level data loaded:", levelData); // Debug: Check if level data is loaded
-        this.setCanvasSize(levelData.dimensions); // Set the canvas size dynamically
-        this.levelData = levelData; // Store level data for redrawing
-        this.drawScene(); // Draw the initial scene with obstacles and photon
-      })
-      .catch((error) => {
-        console.error("Error loading level data:", error);
+  // Draw all obstacles (mirrors)
+  drawObstacles() {
+      if (!this.levelData) return;
+
+      this.levelData.objects.forEach((obstacle) => {
+          if (obstacle.type === "mirror") {
+              this.ctx.fillStyle = "rgba(0, 255, 0, 0.8)"; // Green color for mirrors
+
+              const mirrorWidth = obstacle.bottomRightPosition.x - obstacle.topLeftPosition.x;
+              const mirrorHeight = obstacle.bottomRightPosition.y - obstacle.topLeftPosition.y;
+
+              this.ctx.fillRect(obstacle.topLeftPosition.x, obstacle.topLeftPosition.y, mirrorWidth, mirrorHeight);
+          }
       });
   }
 
-  // Method to set canvas width and height from JSON dimensions
-  setCanvasSize(dimensions) {
-    //console.log("Setting canvas size:", dimensions); // Debug: Log canvas size
-    this.canvas.width = dimensions.width;
-    this.canvas.height = dimensions.height;
-  }
-
-  // Method to draw the entire scene (mirrors and photon)
-  drawScene() {
-    this.clearCanvas(); // Clear the previous frame
-    this.drawObstacles(this.levelData); // Draw obstacles
-    this.drawPhoton(this.photonPosition.x, this.photonPosition.y); // Draw photon at its position
-    this.drawArrow(
-      this.photonPosition.x,
-      this.photonPosition.y,
-      this.targetPosition.x,
-      this.targetPosition.y
-    ); // Arrow to target
-  }
-
-  // Method to draw obstacles (mirrors)
-  drawObstacles(levelData) {
-    if (!levelData || !levelData.objects) {
-      console.warn("No obstacles to draw."); // Debug: Warn if no obstacles
-      return;
-    }
-
-    levelData.objects.forEach((obstacle) => {
-      if (obstacle.type === "mirror") {
-        /*console.log(
-          "Drawing mirror at:",
-          obstacle.topLeftPosition,
-          obstacle.bottomRightPosition
-        ); // Debug: Log mirror positions*/
-
-        this.ctx.fillStyle = "rgba(80, 80, 80, 0.8)"; // Set color for mirrors (make it more visible)
-
-        // Calculate mirror width and height
-        const mirrorWidth =
-          obstacle.bottomRightPosition.x - obstacle.topLeftPosition.x;
-        const mirrorHeight =
-          obstacle.bottomRightPosition.y - obstacle.topLeftPosition.y;
-
-        // Draw the mirror as a rectangle on the canvas
-        this.ctx.fillRect(
-          obstacle.topLeftPosition.x,
-          obstacle.topLeftPosition.y,
-          mirrorWidth,
-          mirrorHeight
-        );
-
-        //console.log("Mirror drawn with size:", mirrorWidth, mirrorHeight); // Debug: Confirm mirror is drawn
-      }
-    });
-  }
-
-  // Method to draw the photon at specific coordinates
+  // Draw the photon at specific coordinates
   drawPhoton(x, y) {
-    //console.log("Drawing photon at:", x, y); // Debug: Log photon position
+      this.clearCanvas(); // Clear the previous frame
+      this.drawObstacles(); // Redraw obstacles
 
-    this.ctx.beginPath();
-    this.ctx.arc(x, y, 5, 0, Math.PI * 2, true); // Draw a small circle representing the photon
-    this.ctx.fillStyle = "yellow"; // Set the color to yellow to represent the photon
-    this.ctx.fill();
-    this.ctx.closePath();
+      // Draw the photon
+      this.ctx.beginPath();
+      this.ctx.arc(x, y, 5, 0, Math.PI * 2, true); // Photon as a small circle
+      this.ctx.fillStyle = "yellow"; // Yellow color for the photon
+      this.ctx.fill();
+      this.ctx.closePath();
 
-    //console.log("Photon drawn at:", x, y); // Debug: Confirm photon is drawn
+      // Optionally draw the arrow direction
+      if (this.isArrowVisible) {
+          this.drawArrow(this.arrowStart.x, this.arrowStart.y, this.arrowEnd.x, this.arrowEnd.y);
+      }
   }
 
-  // Method to clear the canvas
+  // Clear the entire canvas
   clearCanvas() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
-  // Method to update the position of the photon and redraw the scene
+  // Update the photon's position and redraw
   updatePhotonPosition(x, y) {
-    this.photonPosition.x = x;
-    this.photonPosition.y = y;
-    this.drawScene(); // Redraw the entire scene with updated photon position
+      this.photonPosition.x = x;
+      this.photonPosition.y = y;
+      this.drawPhoton(this.photonPosition.x, this.photonPosition.y);
   }
 
-  // Method to draw an arrow from (x0, y0) to (x1, y1)
-  drawArrow(x0, y0, x1, y1) {
-    //console.log(`Drawing arrow from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Log arrow drawing
+  // Draw an arrow representing the direction
+  drawArrow(x1, y1, x2, y2) {
+      this.ctx.strokeStyle = "red";
+      this.ctx.lineWidth = 2;
+      this.ctx.beginPath();
+      this.ctx.moveTo(x1, y1);
+      this.ctx.lineTo(x2, y2);
+      this.ctx.stroke();
 
-    const headLength = 10; // Length of the arrow head
-
-    // Draw the line
-    this.ctx.beginPath();
-    this.ctx.moveTo(x0, y0); // Starting point
-    this.ctx.lineTo(x1, y1); // End point
-    this.ctx.lineWidth = 2; // Arrow line width
-    this.ctx.strokeStyle = "blue"; // Arrow color
-    this.ctx.stroke();
-
-    // Draw the arrow head
-    this.ctx.beginPath();
-    this.ctx.moveTo(x1, y1);
-    this.ctx.lineTo(
-      x1 - headLength * Math.cos(Math.atan2(y1 - y0, x1 - x0) - Math.PI / 6),
-      y1 - headLength * Math.sin(Math.atan2(y1 - y0, x1 - x0) - Math.PI / 6)
-    );
-    this.ctx.lineTo(
-      x1 - headLength * Math.cos(Math.atan2(y1 - y0, x1 - x0) + Math.PI / 6),
-      y1 - headLength * Math.sin(Math.atan2(y1 - y0, x1 - x0) + Math.PI / 6)
-    );
-    this.ctx.lineTo(x1, y1);
-    this.ctx.fillStyle = "blue"; // Arrow head color
-    this.ctx.fill();
-    this.ctx.closePath();
-
-    //console.log(`Arrow drawn from (${x0}, ${y0}) to (${x1}, ${y1})`); // Debug: Confirm arrow is drawn
+      // Draw arrowhead
+      const headlen = 10; // length of head in pixels
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      this.ctx.beginPath();
+      this.ctx.moveTo(x2, y2);
+      this.ctx.lineTo(x2 - headlen * Math.cos(angle - Math.PI / 6), y2 - headlen * Math.sin(angle - Math.PI / 6));
+      this.ctx.lineTo(x2 - headlen * Math.cos(angle + Math.PI / 6), y2 - headlen * Math.sin(angle + Math.PI / 6));
+      this.ctx.lineTo(x2, y2);
+      this.ctx.closePath();
+      this.ctx.fillStyle = "red";
+      this.ctx.fill();
   }
 
-  // Method to handle canvas clicks
-  handleCanvasClick(event) {
-    const rect = this.canvas.getBoundingClientRect();
-    const scaleX = this.canvas.width / rect.width; // Scale factor for X
-    const scaleY = this.canvas.height / rect.height; // Scale factor for Y
+  // Handle mouse click to set the arrow direction
+handleMouseClick(event, photonPosition) {
+  const rect = this.canvas.getBoundingClientRect();
 
-    const x = (event.clientX - rect.left) * scaleX; // Adjust for canvas scale
-    const y = (event.clientY - rect.top) * scaleY; // Adjust for canvas scale
+  // Calculate correct mouse coordinates relative to the canvas
+  const scaleX = this.canvas.width / rect.width;
+  const scaleY = this.canvas.height / rect.height;
 
-    //console.log(`Canvas clicked at: (${x}, ${y})`); // Debug: Log click position
+  const mouseX = (event.clientX - rect.left) * scaleX;
+  const mouseY = (event.clientY - rect.top) * scaleY;
 
-    // Update the target position for the arrow to point to the click location
-    this.targetPosition = { x: x, y: y };
+  // Set the start of the arrow to the photon's position
+  this.arrowStart.x = photonPosition.x;
+  this.arrowStart.y = photonPosition.y;
 
-    // Redraw the scene with the new target position
-    this.drawScene();
+  // Set the end of the arrow to the clicked position
+  this.arrowEnd.x = mouseX;
+  this.arrowEnd.y = mouseY;
+
+  // Make the arrow visible
+  this.isArrowVisible = true;
+
+  // Redraw with the arrow
+  this.updatePhotonPosition(photonPosition.x, photonPosition.y);
+}
+
+
+  // Hide the arrow after launching the photon
+  hideArrow() {
+      this.isArrowVisible = false;
+      this.updatePhotonPosition(this.photonPosition.x, this.photonPosition.y); // Redraw without the arrow
+  }
+
+  // Calculate the normalized direction vector based on the arrow
+  getLaunchDirection() {
+      const dx = this.arrowEnd.x - this.arrowStart.x;
+      const dy = this.arrowEnd.y - this.arrowStart.y;
+
+      const magnitude = Math.sqrt(dx * dx + dy * dy);
+
+      return {
+          x: dx / magnitude,
+          y: dy / magnitude
+      };
   }
 }
